@@ -1,0 +1,7 @@
+<%@tweets.each do |t|%>
+<%=t.title%>
+<%=t.text%>
+<%end%>
+
+<%= link_to "#{@zombie.name}'s Tweets", zombie_tweets_path(@zombie) %>
+<%= link_to 'Show', [@zombie, @tweet] %>
