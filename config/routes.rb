@@ -2,6 +2,7 @@ TwitterForZombies::Application.routes.draw do
 
   resources :zombies do
     resources :tweets
+      get :old, on: :member
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

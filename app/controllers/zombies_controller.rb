@@ -16,8 +16,13 @@ class ZombiesController < ApplicationController
     @zombie = Zombie.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @zombie }
+      format.html do
+        if @zombie.age == 25
+          render :old
+        end
+      end
+
+      format.json { render json: @zombie, status: :ok, location: :zombie }
     end
   end
 
@@ -78,6 +83,7 @@ class ZombiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to zombies_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end

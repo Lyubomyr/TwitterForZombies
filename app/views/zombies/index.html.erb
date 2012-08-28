@@ -11,13 +11,13 @@
   </tr>
 
 <% @zombies.each do |zombie| %>
-  <tr>
+  <tr name = <%=zombie.name%>>
     <td><%= zombie.name %></td>
     <td><%= zombie.bio %></td>
     <td><%= zombie.age %></td>
     <td><%= link_to 'Show', zombie %></td>
     <td><%= link_to 'Edit', edit_zombie_path(zombie) %></td>
-    <td><%= link_to 'Destroy', zombie, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', zombie, method: :delete, remote: true %></td>
   </tr>
 <% end %>
 </table>
